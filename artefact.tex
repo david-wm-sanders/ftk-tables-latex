@@ -1,0 +1,74 @@
+% !TEX TS-program = pdflatex
+\documentclass[12pt]{article}
+
+% Package the packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper, margin=0.75in]{geometry}
+\usepackage{calc}
+\usepackage{tabularx, makecell}
+% For nicer lists inside cells...
+\usepackage{enumitem}
+\setlist{nosep}
+% -
+
+\begin{document}
+\section{Artefacts}
+\subsection{1}
+\begin{table}[h!]
+\centering
+% \caption{An informative caption}
+% \label{A specific label}
+\newcolumntype{k}{>{\raggedright\arraybackslash}p{2.75cm}}
+\newcolumntype{v}{X}
+\newcolumntype{t}{>{\raggedright\arraybackslash}p{\textwidth - 4\tabcolsep - 2.75cm - 3\arrayrulewidth}}
+% Force cells to align content top-left
+\renewcommand\cellalign{tl}
+\begin{tabularx}{1\textwidth}{|k|v|k|v|}
+\hline
+FTK No.  & \texttt{[FTK Item No.]}  & Evidence No.  & \texttt{\textbf{DSxx}}  \tabularnewline \hline
+Filename  & \multicolumn{3}{t|}{\texttt{[name\_of\_file.ext]}}  \tabularnewline \hline
+Hash (MD5)  & \multicolumn{3}{t|}{\texttt{[MD5 hash of the file]}}  \tabularnewline \hline
+Hash (SHA1)  & \multicolumn{3}{t|}{\texttt{[SHA1 hash of the file]}}  \tabularnewline \hline
+Date Created  & \multicolumn{3}{t|}{\texttt{[The time at which the file was created]}}  \tabularnewline \hline
+Date Modified  & \multicolumn{3}{t|}{\texttt{[The time at which the file was last modified]}}  \tabularnewline \hline
+Date Accessed  & \multicolumn{3}{t|}{\texttt{[The time at which the file was last accessed]}}  \tabularnewline \hline
+Is deleted?  & \multicolumn{3}{t|}{\texttt{[Was the file deleted? Yes/No]}}  \tabularnewline \hline
+Size (L/P)  & \multicolumn{3}{t|}{\texttt{[The logical/physical size of the file]}}  \tabularnewline \hline
+File path  & \multicolumn{3}{t|}{\texttt{[C:\textbackslash full\textbackslash path\textbackslash to\textbackslash file]}}  \tabularnewline \hline
+% Evidence Description  & \multicolumn{3}{t|}{\textit{Description of the evidence.}}  \tabularnewline \hline
+% If using makecell, we must makecell all cells in row to get correct rendering and content alignment
+\makecell[{{p{2.75cm}}}]{\raggedright Evidence Description}  & \multicolumn{3}{t|}{
+\makecell[{{p{\textwidth - 4\tabcolsep - 3cm - 3\arrayrulewidth}}}]{
+\textit{[Description of the evidence.]}\\
+\textit{Forced line breaks by using} \texttt{\textbackslash\textbackslash} \textit{are possible.}\\\\
+\textit{By extension, new paragraphs can be achieved with} \texttt{\textbackslash\textbackslash\textbackslash\textbackslash}.
+}}  \tabularnewline \hline
+% Technique used  & \multicolumn{3}{t|}{\textit{Technique used to discover the evidence.}}  \tabularnewline \hline
+% If using makecell, we must makecell all cells in row to get correct rendering and content alignment
+\makecell[{{p{2.75cm}}}]{\raggedright Technique used}  & \multicolumn{3}{t|}{
+\makecell[{{p{\textwidth - 4\tabcolsep - 3cm - 3\arrayrulewidth}}}]{
+\textit{[Technique used to discover the evidence.]}\\
+\textit{Itemized and enumerated lists are usable inside these cells. They can be:}
+\begin{itemize}
+  \item \textit{short - or longer if a complicated step of the process requires a more in depth explanation!}
+  \item \textit{simple or nested (for breaking complicated steps into sub-steps):}
+        \begin{enumerate}[label=\emph{\roman*.}]
+          \item \textit{sub-step 1 of a complicated process...}
+          \item \textit{sub-step 2 of a complicated process...}
+        \end{enumerate}
+  \item \textit{sweet}
+  % Remove extraneous vertical space...
+  \vspace{-\baselineskip}
+\end{itemize}
+}}  \tabularnewline \hline
+% Reason for selection  & \multicolumn{3}{t|}{\textit{Why was this file was selected as evidence?}}  \tabularnewline \hline
+% If using makecell, we must makecell all cells in row to get correct rendering and content alignment
+\makecell[{{p{2.75cm}}}]{\raggedright Reason for selection}  & \multicolumn{3}{t|}{
+\makecell[{{p{\textwidth - 4\tabcolsep - 3cm - 3\arrayrulewidth}}}]{
+\textit{[Why was this file was selected as evidence?]}
+}}  \tabularnewline \hline
+\end{tabularx}
+\end{table}
+\end{document}
